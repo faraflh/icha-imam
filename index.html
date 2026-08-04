@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Undangan Pernikahan — Icha & Imam</title>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..700;1,300..700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+		rel="stylesheet">
+
+	<!-- External Stylesheet -->
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<!-- Background Music -->
+	<audio id="wedding-audio" loop>
+		<source src="assets/Daylight_spotdown.org.mp3" type="audio/mp3">
+	</audio>
+
+	<!-- Reusable ornament defs (signature vine motif) -->
+	<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+		<symbol id="icon-map" viewBox="0 0 24 24">
+			<path fill="currentColor"
+				d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.25 6.5 11.5 7.06 12.02a.6.6 0 0 0 .88 0C13 21 19.5 14.75 19.5 9.5 19.5 5.36 16.14 2 12 2Zm0 10.25a2.75 2.75 0 1 1 0-5.5 2.75 2.75 0 0 1 0 5.5Z" />
+		</symbol>
+		<symbol id="icon-play" viewBox="0 0 24 24">
+			<path fill="currentColor"
+				d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm-1.5 14.5v-9l7 4.5-7 4.5Z" />
+		</symbol>
+		<symbol id="icon-copy" viewBox="0 0 24 24">
+			<path fill="currentColor"
+				d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1Zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H8V7h11v14Z" />
+		</symbol>
+		<symbol id="icon-music" viewBox="0 0 24 24">
+			<path fill="currentColor" d="M9 3v10.55A4 4 0 1 0 11 17V7h6V3H9Z" />
+		</symbol>
+	</svg>
+
+	<div class="mobile-page is-locked">
+
+		<!-- Scroll progress (thin gold thread) -->
+		<div class="scroll-progress" id="scrollProgress"></div>
+
+		<!-- COVER SECTION (SLIDES AWAY) -->
+		<div class="front-page" id="frontPage">
+			<h2 class="front-title">the wedding of</h2>
+			<div class="nama">
+				<img src="assets/crown.png" alt="Flower Frame">
+				<div class="nama-text">
+					<h1>Icha</h1>
+					<h1>&</h1>
+					<h1>Imam</h1>
+				</div>
+			</div>
+
+			<div class="bottom-content">
+				<div class="tamu">
+					<h3>Kepada Yth:</h3>
+					<h2 id="guestName">Yulinda & Keluarga</h2>
+					<h3>di Tempat</h3>
+				</div>
+
+				<button class="btn-buka" id="btnBuka">
+					<span>Buka Undangan</span>
+				</button>
+			</div>
+			<img src="assets/flower-fade.png" alt="btm" class="flower-fade">
+			<img src="assets/bottom-left.png" alt="btm" class="flower-l">
+			<img src="assets/bottom-left.png" alt="btm" class="flower-r">
+		</div>
+
+		<!-- MAIN PAGE CONTENT (REVEALED UNDERNEATH) -->
+		<main class="main-content" id="mainContent">
+
+			<!-- Ambient floating light — drifting bokeh orbs behind the glass cards -->
+			<div class="ambient-layer" aria-hidden="true">
+				<span class="orb orb-1"></span>
+				<span class="orb orb-2"></span>
+				<span class="orb orb-3"></span>
+				<span class="orb orb-4"></span>
+				<span class="orb orb-5"></span>
+				<span class="orb orb-6"></span>
+			</div>
+
+			<!-- 1. HERO / OPENING -->
+			<section class="section hero-section reveal">
+				<p class="section-eyebrow">The Wedding Of</p>
+				<h1 class="hero-title">Icha &amp; Imam</h1>
+
+				<dotlottie-wc src="https://lottie.host/bca91ed1-1389-451d-b42e-33ce802f7f9f/VD310PSYon.lottie"
+					style="width: 100%;height: auto; position: absolute;" autoplay loop></dotlottie-wc>
+				<img src="assets/trees-dv.png" alt="btm" class="trees-dv">
+				<blockquote class="quote-box">
+					<p>Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari
+						jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya
+						di antaramu rasa kasih dan sayang.</p>
+					<cite>Q.S. Ar-Rum: 21</cite>
+				</blockquote>
+			</section>
+
+			<!-- 2. COUPLE -->
+			<section class="section couple-section reveal" id="couple">
+				<img src="assets/top-flower.png" alt="btm" class="top-flower" style="width: 120%">
+				<h2 class="section-title">Couple</h2>
+
+				<div class="couple-zigzag">
+					<article class="couple-block reveal">
+						<div class="couple-photo-frame">
+							<div class="couple-photo" role="img" aria-label="Foto mempelai wanita">
+								<img src="assets/SCF_0364.JPG.jpeg" alt="Zhafira Khairunnisa">
+							</div>
+
+							<!-- 🌸 FLOWER ACCENT ADDED HERE -->
+							<img src="assets/couple.png" alt="" class="couple-flower-decor">
+						</div>
+
+						<div class="couple-glass-card">
+							<p class="couple-role">bride</p>
+							<h3 class="couple-name">Zhafira Khairunnisa</h3>
+							<p class="couple-parents">Anak pertama dari<br>Bapak M. Faried Arifiansyah &amp; Ibu Yulia
+								Ramadhani</p>
+						</div>
+					</article>
+
+					<div class="couple-amp" aria-hidden="true">
+						<img src="assets/vines.png" alt="" class="amp-vine amp-vine-left">
+						<span>&amp;</span>
+						<img src="assets/vines.png" alt="" class="amp-vine amp-vine-right">
+					</div>
+					<article class="couple-block reverse reveal">
+						<div class="couple-photo-frame">
+							<div class="couple-photo" role="img" aria-label="Foto mempelai pria">
+								<img src="assets/imam.jpg" alt="Ahmad Arrasichan Immamatul Ulya">
+							</div>
+							<img src="assets/couple.png" alt="" class="couple-flower-decor">
+						</div>
+						<div class="couple-glass-card">
+							<p class="couple-role">Groom</p>
+							<h3 class="couple-name">Ahmad Arrasichan Immamatul Ulya</h3>
+							<p class="couple-parents">Anak kedua dari<br>Bapak Tukiman Khateni &amp; Ibu Tengku Ida
+								Adriani</p>
+						</div>
+					</article>
+				</div>
+				<img src="assets/bottom-flower.png" alt="btm" class="flower-couple">
+			</section>
+
+			<!-- 3 & 4. AKAD & RESEPSI -->
+			<section class="section event-section reveal" id="acara">
+				<img src="assets/top-frame.png" alt="btm" class="top-flower" style="top: -2%">
+				<img src="assets/pillars.png" alt="btm" class="pillars">
+				<img src="assets/pillars-btm.png" alt="btm" class="pillars-btm">
+				<dotlottie-wc src="https://lottie.host/bca91ed1-1389-451d-b42e-33ce802f7f9f/VD310PSYon.lottie"
+					style="width: 100%;height: auto; position: absolute;" autoplay loop></dotlottie-wc>
+				<p class="section-eyebrow">Save The Date</p>
+				<h2 class="section-title">Rangkaian Acara</h2>
+
+				<!-- CARD 1: AKAD NIKAH (Standard Dome Arch) -->
+				<div class="event-card event-card-top">
+					<h3 class="event-card-title">Akad Nikah</h3>
+					<p class="event-date">Sabtu, 10 Oktober 2026</p>
+					<p class="event-detail">Pukul 08.00 WIB – Selesai</p>
+					<p class="event-detail event-place">
+						New Hollywood Hotel, Jl. Kuantan Raya No.120, Sekip, Lima Puluh, Kota Pekanbaru, Riau 28151
+					</p>
+					<a href="https://maps.app.goo.gl/comFzC7fBvgy4DWi7" target="_blank" rel="noopener" class="btn-map">
+						<svg class="icon">
+							<use href="#icon-map"></use>
+						</svg>
+						Buka Maps
+					</a>
+				</div>
+
+				<!-- LIVESTREAM BANNER (STANDALONE IN BETWEEN) -->
+				<div class="livestream-box">
+					<svg class="icon icon-live">
+						<use href="#icon-play"></use>
+					</svg>
+					<div>
+						<p class="livestream-title">Live Streaming Resepsi</p>
+						<p class="livestream-note">Tautan aktif H-1 sebelum acara berlangsung.</p>
+					</div>
+					<a href="https://youtube.com" target="_blank" rel="noopener" class="btn-live">Tonton</a>
+				</div>
+
+				<!-- CARD 2: RESEPSI (Inverted Dome Arch) -->
+				<div class="event-card event-card-bottom">
+					<h3 class="event-card-title">Resepsi</h3>
+					<p class="event-date">Sabtu, 10 Oktober 2026</p>
+					<p class="event-detail">Pukul 11.00 WIB – Selesai</p>
+					<p class="event-detail event-place">
+						New Hollywood Hotel, Jl. Kuantan Raya No.120, Sekip, Lima Puluh, Kota Pekanbaru, Riau 28151
+					</p>
+					<a href="https://maps.app.goo.gl/comFzC7fBvgy4DWi7" target="_blank" rel="noopener" class="btn-map">
+						<svg class="icon">
+							<use href="#icon-map"></use>
+						</svg>
+						Buka Maps
+					</a>
+				</div>
+			</section>
+
+			<!-- 5. LOVE STORY -->
+			<section class="section story-section reveal" id="love-story">
+				<img src="assets/story-left.png" alt="btm" class="story-flower">
+				<img src="assets/story-right.png" alt="btm" class="story-flower-r">
+				<img src="assets/pillars-btm.png" alt="btm" class="pillars-btm">
+				<!-- PHOTO WITH OVERLAY TITLE INSIDE -->
+				<div class="story-photo story-photo-start reveal">
+					<img src="assets/love-story2.webp" alt="Pertama bertemu">
+
+					<!-- Text Overlay -->
+					<div class="story-header-overlay">
+						<p class="section-eyebrow">Our</p>
+						<h2 class="section-title">Love Story</h2>
+					</div>
+				</div>
+
+				<!-- GLASS CARD -->
+				<div class="story-glass-card reveal">
+					<p class="story-paragraph">
+						<span class="story-badge">Awal Pertemuan</span>
+						Tak ada yang kebetulan dalam hidup. Awalnya kami hanya dua orang asing yang dipertemukan di
+						sebuah kafe bersama teman-teman dalam suatu kesempatan sederhana. Sapaan singkat itu ternyata
+						menjadi awal dari cerita panjang yang tak pernah kami bayangkan.
+					</p>
+
+					<p class="story-paragraph">
+						<span class="story-badge">Perjalanan Bersama</span>
+						Seiring berjalannya waktu, kami mulai mengenal satu sama lain lebih dalam. Obrolan kecil berubah
+						menjadi tawa panjang, dan pertemuan singkat berubah menjadi kebersamaan yang selalu kami
+						nantikan.
+					</p>
+
+					<p class="story-paragraph">
+						<span class="story-badge">Keyakinan</span>
+						Perjalanan ini mengajarkan kami arti kesabaran, keikhlasan, dan betapa indahnya menemukan
+						seseorang yang membuat hati merasa pulang. Dari situlah kami yakin bahwa inilah cinta yang ingin
+						kami jaga selamanya.
+					</p>
+
+					<p class="story-paragraph">
+						<span class="story-badge">Lamaran</span>
+						Hingga akhirnya, keseriusan itu berbuah manis. Dengan cara yang sederhana namun penuh makna, ia
+						melamar dan berjanji untuk selalu mendampingi di setiap suka dan duka.
+					</p>
+
+					<p class="story-paragraph">
+						<span class="story-badge">Hari Bahagia</span>
+						Dan kini, tibalah kami pada babak baru kehidupan. Dengan penuh syukur, kami mengundang keluarga
+						dan sahabat untuk menjadi saksi bersatunya dua hati dalam ikatan suci pernikahan.
+					</p>
+				</div>
+			</section>
+
+			<!-- 6. GALLERY -->
+			<section class="section gallery-section reveal" id="gallery">
+				<p class="section-eyebrow">Prewedding</p>
+				<h2 class="section-title">Galeri Foto</h2>
+				<img src="assets/top-frame.png" alt="btm" class="top-flower" style="top: -2%">
+				<img src="assets/altar.png" alt="btm" class="pillars" style="width: 120%">
+				<div class="gallery-carousel">
+					<!-- <button class="gallery-control gallery-control-prev" id="galleryPrev" type="button"
+						aria-label="Foto sebelumnya">&#8249;</button> -->
+					<div class="gallery-track" id="galleryTrack">
+						<button class="gallery-item" type="button"><img src="assets/cover.webp" alt="Foto prewedding Icha dan Imam 1"></button>
+						<button class="gallery-item" type="button"><img src="assets/IMG_1863.JPG.webp" alt="Foto prewedding Icha dan Imam 2"></button>
+						<button class="gallery-item" type="button"><img src="assets/love-story.webp" alt="Foto prewedding Icha dan Imam 3"></button>
+						<button class="gallery-item" type="button"><img src="assets/love-story2.webp" alt="Foto prewedding Icha dan Imam 4"></button>
+						<button class="gallery-item" type="button"><img src="assets/SCF_0364.JPG.jpeg" alt="Foto prewedding Icha dan Imam 5"></button>
+						<button class="gallery-item" type="button"><img src="assets/imam.jpg" alt="Foto prewedding Icha dan Imam 6"></button>
+					</div>
+					<!-- <button class="gallery-control gallery-control-next" id="galleryNext" type="button"
+						aria-label="Foto berikutnya">&#8250;</button> -->
+				</div>
+			</section>
+
+			<!-- Lightbox -->
+			<div class="lightbox" id="lightbox" aria-hidden="true">
+				<button class="lightbox-close" id="lightboxClose" aria-label="Tutup">&times;</button>
+				<button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Sebelumnya">&#8249;</button>
+				<div class="lightbox-content" id="lightboxContent">Foto</div>
+				<button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Selanjutnya">&#8250;</button>
+			</div>
+
+			<!-- 7. WEDDING GIFT -->
+			<section class="section gift-section reveal" id="gift">
+				<img src="assets/gift-frame.png" alt="btm" class="gift-frame">
+				<img src="assets/gift-flower.png" alt="btm" class="gift-flower">
+				<p class="section-eyebrow">Wedding Gift</p>
+				<h2 class="section-title">Kirim Hadiah</h2>
+				<p class="gift-intro">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun
+					jika ingin memberikan tanda kasih, kami menyediakan pilihan berikut.</p>
+
+				<div class="gift-card">
+					<p class="gift-bank">Bank BCA</p>
+					<p class="gift-number" id="giftNumber1">1234 5678 90</p>
+					<p class="gift-owner">a.n. Imam Wahyudi</p>
+					<button class="btn-copy" data-copy="1234567890" data-target="1">
+						<svg class="icon">
+							<use href="#icon-copy"></use>
+						</svg>
+						Salin
+					</button>
+				</div>
+
+				<div class="gift-card">
+					<p class="gift-bank">Bank Mandiri</p>
+					<p class="gift-number" id="giftNumber2">0987 6543 21</p>
+					<p class="gift-owner">a.n. Ichaqmatus Sholihah</p>
+					<button class="btn-copy" data-copy="0987654321" data-target="2">
+						<svg class="icon">
+							<use href="#icon-copy"></use>
+						</svg>
+						Salin
+					</button>
+				</div>
+
+				<p class="gift-note">Untuk kado dalam bentuk barang, silakan hubungi kami langsung agar kami
+					dapat membagikan alamat pengiriman.</p>
+			</section>
+
+			<!-- 8. RSVP & WISHES -->
+			<section class="section rsvp-section reveal" id="rsvp">
+				<img src="assets/top-flower.png" alt="btm" class="top-flower" >
+				<img src="assets/trees-dv.png" alt="btm" class="trees-dv" style="opacity: 0.7">
+				<p class="section-eyebrow">RSVP</p>
+				<h2 class="section-title">Konfirmasi Kehadiran &amp; Ucapan</h2>
+
+				<form class="rsvp-form" id="rsvpForm">
+					<label class="field">
+						<span>Nama</span>
+						<input type="text" id="rsvpName" name="name" placeholder="Nama Anda" required>
+					</label>
+
+					<label class="field">
+						<span>Konfirmasi Kehadiran</span>
+						<select id="rsvpStatus" name="status" required>
+							<option value="" disabled selected>Pilih konfirmasi</option>
+							<option value="Hadir">Hadir</option>
+							<option value="Tidak Hadir">Tidak Hadir</option>
+							<option value="Ragu-ragu">Ragu-ragu</option>
+						</select>
+					</label>
+
+					<label class="field">
+						<span>Ucapan &amp; Doa</span>
+						<textarea id="rsvpMessage" name="message" rows="3" placeholder="Tuliskan doa dan ucapan Anda..."
+							required></textarea>
+					</label>
+
+					<button type="submit" class="btn-submit">Kirim</button>
+				</form>
+
+				<div class="wishes-list" id="wishesList">
+					<!-- Wishes rendered here by script.js -->
+				</div>
+			</section>
+
+			<!-- 9. CLOSING -->
+			<section class="section closing-section reveal">
+				<img src="assets/story-left.png" alt="btm" class="story-flower">
+				<img src="assets/story-right.png" alt="btm" class="story-flower-r">
+				<img src="assets/top-flower.png" alt="btm" class="top-flower" style="width: 110%; top: -10%">
+				<p class="closing-quote">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+					Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.</p>
+				<h3 class="closing-names">Icha &amp; Imam</h3>
+				<p class="closing-thanks">Terima kasih atas doa dan restunya.</p>
+				<p class="closing-hashtag">#IchaImamWedding</p>
+			</section>
+
+		</main>
+
+		<!-- Floating music toggle (visible after invitation opened) -->
+		<button class="music-toggle" id="musicToggle" aria-label="Putar atau jeda musik" hidden>
+			<svg class="icon">
+				<use href="#icon-music"></use>
+			</svg>
+		</button>
+
+	</div>
+
+	<!-- External Script -->
+	<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+	<script src="script.js"></script>
+</body>
+
+</html>
