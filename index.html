@@ -4,20 +4,22 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<!-- Primary Meta Tags -->
-    <title>Undangan Pernikahan Ica & Imam</title>
-    <meta name="title" content="Undangan Pernikahan Ica & Imam">
-    <meta name="description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ica-imam.vercel.app/">
-    <meta property="og:title" content="Undangan Pernikahan Ica & Imam">
-    <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.">
-    <meta property="og:image" content="https://ica-imam.vercel.app/assets/love-story2.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+	<!-- Primary Meta Tags -->
+	<title>Undangan Pernikahan Ica & Imam</title>
+	<meta name="title" content="Undangan Pernikahan Ica & Imam">
+	<meta name="description"
+		content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.">
+
+	<!-- Open Graph / Facebook / WhatsApp -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://ica-imam.vercel.app/">
+	<meta property="og:title" content="Undangan Pernikahan Ica & Imam">
+	<meta property="og:description"
+		content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk hadir di hari bahagia kami.">
+	<meta property="og:image" content="https://ica-imam.vercel.app/assets/love-story2.webp">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
 
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,9 +59,12 @@
 			<path fill="currentColor" d="M9 3v10.55A4 4 0 1 0 11 17V7h6V3H9Z" />
 		</symbol>
 		<symbol id="icon-cimb" viewBox="0 0 40 40">
-			<rect x="1" y="1" width="38" height="38" rx="9" fill="#7C2A1E" />
-			<path d="M9 13h16l-7 7H9z" fill="#ffffff" />
-			<path d="M9 20h14l7 7H16z" fill="#E8592B" />
+			<!-- Enlarged shapes inside the frame (~20% bigger) -->
+			<g transform="translate(-3, -4) scale(1.2)">
+				<rect x="1" y="1" width="38" height="38" rx="9" fill="#7C2A1E"></rect>
+				<path d="M9 13h14l7 7H16z" fill="#FFFFFF"></path>
+				<path d="M16 20h14l-7 7H8z" fill="#ED1D24"></path>
+			</g>
 		</symbol>
 	</svg>
 
@@ -83,7 +88,7 @@
 			<div class="bottom-content">
 				<div class="tamu">
 					<h3>Kepada Yth:</h3>
-					<h2 id="guestName">Yulinda & Keluarga</h2>
+					<h2 id="guestName">Tamu Undangan</h2>
 					<h3>di Tempat</h3>
 				</div>
 
@@ -117,6 +122,15 @@
 				<dotlottie-wc src="https://lottie.host/bca91ed1-1389-451d-b42e-33ce802f7f9f/VD310PSYon.lottie"
 					style="width: 100%;height: auto; position: absolute;" autoplay loop></dotlottie-wc>
 				<img src="assets/trees-dv.png" alt="btm" class="trees-dv">
+				<div class="countdown" id="countdown" aria-label="Hitung mundur menuju hari pernikahan">
+					<p class="countdown-date">Sabtu, 10 Oktober 2026</p>
+					<div class="countdown-units">
+						<div class="countdown-unit"><strong id="countdownDays">00</strong><span>Hari</span></div>
+						<div class="countdown-unit"><strong id="countdownHours">00</strong><span>Jam</span></div>
+						<div class="countdown-unit"><strong id="countdownMinutes">00</strong><span>Menit</span></div>
+						<div class="countdown-unit"><strong id="countdownSeconds">00</strong><span>Detik</span></div>
+					</div>
+				</div>
 				<blockquote class="quote-box">
 					<p>Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari
 						jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya
@@ -247,27 +261,37 @@
 				<div class="story-glass-card reveal">
 					<p class="story-paragraph">
 						<span class="story-badge">Awal Pertemuan</span>
-						Tak ada yang benar-benar kebetulan di dunia ini. Di sebuah sudut hangat bernama Separuh Bumi, Allah mempertemukan dua insan yang sebelumnya hanyalah orang asing. Dari sapaan sederhana dan pertemuan yang tak pernah direncanakan, tumbuh sebuah kisah yang kelak menjadi awal perjalanan cinta kami.
+						Tak ada yang benar-benar kebetulan di dunia ini. Di sebuah sudut hangat bernama Separuh Bumi,
+						Allah mempertemukan dua insan yang sebelumnya hanyalah orang asing. Dari sapaan sederhana dan
+						pertemuan yang tak pernah direncanakan, tumbuh sebuah kisah yang kelak menjadi awal perjalanan
+						cinta kami.
 					</p>
 
 					<p class="story-paragraph">
 						<span class="story-badge">Perjalanan Bersama</span>
-						Seiring waktu, kebersamaan mengajarkan kami arti saling mengenal, saling memahami, dan saling menguatkan. Tawa, cerita, dan setiap langkah yang kami lalui perlahan mengubah dua perjalanan berbeda menjadi satu tujuan yang sama.
+						Seiring waktu, kebersamaan mengajarkan kami arti saling mengenal, saling memahami, dan saling
+						menguatkan. Tawa, cerita, dan setiap langkah yang kami lalui perlahan mengubah dua perjalanan
+						berbeda menjadi satu tujuan yang sama.
 					</p>
 
 					<p class="story-paragraph">
 						<span class="story-badge">Keyakinan</span>
-						Cinta mengajarkan kami bahwa rumah bukanlah sebuah tempat, melainkan seseorang yang selalu ingin kita tuju. Dari setiap proses yang kami lalui, tumbuh keyakinan untuk saling menjaga dan melangkah bersama selamanya.
+						Cinta mengajarkan kami bahwa rumah bukanlah sebuah tempat, melainkan seseorang yang selalu ingin
+						kita tuju. Dari setiap proses yang kami lalui, tumbuh keyakinan untuk saling menjaga dan
+						melangkah bersama selamanya.
 					</p>
 
 					<p class="story-paragraph">
 						<span class="story-badge">Lamaran</span>
-						Dengan hati yang penuh kesungguhan, ia mengucapkan janji untuk mendampingi dalam setiap suka dan duka. Momen sederhana itu menjadi awal dari langkah besar menuju masa depan yang kami impikan bersama.
+						Dengan hati yang penuh kesungguhan, ia mengucapkan janji untuk mendampingi dalam setiap suka dan
+						duka. Momen sederhana itu menjadi awal dari langkah besar menuju masa depan yang kami impikan
+						bersama.
 					</p>
 
 					<p class="story-paragraph">
 						<span class="story-badge">Hari Bahagia</span>
-						Kini, dengan penuh rasa syukur, kami melangkah menuju ikatan suci pernikahan. Semoga hari ini menjadi awal dari perjalanan seumur hidup yang dipenuhi cinta, kebahagiaan, dan keberkahan.
+						Kini, dengan penuh rasa syukur, kami melangkah menuju ikatan suci pernikahan. Semoga hari ini
+						menjadi awal dari perjalanan seumur hidup yang dipenuhi cinta, kebahagiaan, dan keberkahan.
 					</p>
 				</div>
 			</section>
@@ -275,22 +299,48 @@
 			<!-- 6. GALLERY -->
 			<section class="section gallery-section reveal" id="gallery">
 				<p class="section-eyebrow">Prewedding</p>
-				<h2 class="section-title">Galeri Foto</h2>
+				<h2 class="section-title">Galeri</h2>
 				<img src="assets/top-frame.png" alt="btm" class="top-flower" style="top: -2%">
 				<img src="assets/altar.png" alt="btm" class="pillars" style="width: 120%">
+				<div class="gallery-tabs" role="tablist" aria-label="Pilih galeri">
+					<button class="gallery-tab is-active" id="galleryPhotoTab" type="button" role="tab"
+						aria-selected="true" aria-controls="galleryPhotos">Foto</button>
+					<button class="gallery-tab" id="galleryVideoTab" type="button" role="tab"
+						aria-selected="false" aria-controls="galleryVideo">Video</button>
+				</div>
+
+				<div class="gallery-panel" id="galleryPhotos" role="tabpanel" aria-labelledby="galleryPhotoTab">
 				<div class="gallery-carousel">
 					<!-- <button class="gallery-control gallery-control-prev" id="galleryPrev" type="button"
 						aria-label="Foto sebelumnya">&#8249;</button> -->
 					<div class="gallery-track" id="galleryTrack">
-						<button class="gallery-item" type="button"><img src="assets/cover.webp" alt="Foto prewedding Ica dan Imam 1"></button>
-						<button class="gallery-item" type="button"><img src="assets/IMG_1863.JPG.webp" alt="Foto prewedding Ica dan Imam 2"></button>
-						<button class="gallery-item" type="button"><img src="assets/love-story.webp" alt="Foto prewedding Ica dan Imam 3"></button>
-						<button class="gallery-item" type="button"><img src="assets/love-story2.webp" alt="Foto prewedding Ica dan Imam 4"></button>
-						<button class="gallery-item" type="button"><img src="assets/SCF_0364.JPG.jpeg" alt="Foto prewedding Ica dan Imam 5"></button>
-						<button class="gallery-item" type="button"><img src="assets/imam.jpg" alt="Foto prewedding Ica dan Imam 6"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/3be657d6-9513-4ebe-a602-e20310532986.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 1"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/PSS_4497.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 2"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/PSS_4556.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 3"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/SCF_0391.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 4"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/SCF_0396.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 5"></button>
+						<button class="gallery-item" type="button"><img src="assets/galeri/SCF_0412.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 6"></button>
+						<button class="gallery-item" type="button"><img src="assets/love-story2.webp"
+								alt="Foto prewedding Ica dan Imam 7"></button>
+						<button class="gallery-item" type="button"><img src="assets/SCF_0364.JPG.jpeg"
+								alt="Foto prewedding Ica dan Imam 8"></button>
+						<button class="gallery-item" type="button"><img src="assets/imam.jpg"
+								alt="Foto prewedding Ica dan Imam 9"></button>
 					</div>
 					<!-- <button class="gallery-control gallery-control-next" id="galleryNext" type="button"
 						aria-label="Foto berikutnya">&#8250;</button> -->
+				</div>
+				</div>
+
+				<div class="gallery-panel gallery-video-panel" id="galleryVideo" role="tabpanel"
+					aria-labelledby="galleryVideoTab" data-video-src="https://player.vimeo.com/video/1230201596?h=f0b7005fbb&amp;autoplay=1" hidden>
+					<div class="gallery-video-frame" id="galleryVideoFrame"></div>
 				</div>
 			</section>
 
@@ -351,7 +401,7 @@
 
 			<!-- 8. RSVP & WISHES -->
 			<section class="section rsvp-section reveal" id="rsvp">
-				<img src="assets/top-flower.png" alt="btm" class="top-flower" >
+				<img src="assets/top-flower.png" alt="btm" class="top-flower">
 				<img src="assets/trees-dv.png" alt="btm" class="trees-dv" style="opacity: 0.7">
 				<p class="section-eyebrow">RSVP</p>
 				<h2 class="section-title">Konfirmasi Kehadiran &amp; Ucapan</h2>
@@ -395,7 +445,7 @@
 					Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.</p>
 				<h3 class="closing-names">Ica &amp; Imam</h3>
 				<p class="closing-thanks">Terima kasih atas doa dan restunya.</p>
-				<p class="closing-hashtag">#IchaImamWedding</p>
+				<p class="closing-hashtag">#ICAMAMories</p>
 			</section>
 
 		</main>

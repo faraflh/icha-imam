@@ -13,9 +13,35 @@ document.addEventListener("DOMContentLoaded", function () {
   const urlParams = new URLSearchParams(window.location.search);
   const guestParam = urlParams.get("to");
   if (guestParam) {
-    document.getElementById("guestName").innerText =
-      decodeURIComponent(guestParam);
+    // URLSearchParams has already decoded the query value.
+    document.getElementById("guestName").textContent = guestParam;
   }
+
+  // Wedding countdown — 10 October 2026, 08:00 WIB.
+  const countdownTarget = new Date("2026-10-10T08:00:00+07:00");
+  const countdownElements = {
+    days: document.getElementById("countdownDays"),
+    hours: document.getElementById("countdownHours"),
+    minutes: document.getElementById("countdownMinutes"),
+    seconds: document.getElementById("countdownSeconds"),
+  };
+
+  function updateCountdown() {
+    const remaining = Math.max(0, countdownTarget.getTime() - Date.now());
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    countdownElements.days.textContent = String(days).padStart(2, "0");
+    countdownElements.hours.textContent = String(hours).padStart(2, "0");
+    countdownElements.minutes.textContent = String(minutes).padStart(2, "0");
+    countdownElements.seconds.textContent = String(seconds).padStart(2, "0");
+  }
+
+  updateCountdown();
+  window.setInterval(updateCountdown, 1000);
 
   // ===============================
   // Unlock Invitation Event
@@ -291,6 +317,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const lightboxClose = document.getElementById("lightboxClose");
   const lightboxPrev = document.getElementById("lightboxPrev");
   const lightboxNext = document.getElementById("lightboxNext");
+  const photoTab = document.getElementById("galleryPhotoTab");
+  const videoTab = document.getElementById("galleryVideoTab");
+  const photosPanel = document.getElementById("galleryPhotos");
+  const videoPanel = document.getElementById("galleryVideo");
+  const videoFrame = document.getElementById("galleryVideoFrame");
 
   if (!track || !items.length) return;
 
@@ -407,6 +438,36 @@ document.addEventListener("DOMContentLoaded", function () {
     scheduleAutoSlide();
   }
 
+  function selectGalleryTab(selectedTab) {
+    const showVideo = selectedTab === "video";
+    if (!photoTab || !videoTab || !photosPanel || !videoPanel) return;
+
+    photoTab.classList.toggle("is-active", !showVideo);
+    photoTab.setAttribute("aria-selected", String(!showVideo));
+    videoTab.classList.toggle("is-active", showVideo);
+    videoTab.setAttribute("aria-selected", String(showVideo));
+    photosPanel.hidden = showVideo;
+    videoPanel.hidden = !showVideo;
+
+    if (showVideo) {
+      stopAutoSlide();
+      if (videoFrame && !videoFrame.querySelector("iframe")) {
+        const iframe = document.createElement("iframe");
+        iframe.title = "Video prewedding Ica dan Imam";
+        iframe.src = videoPanel.dataset.videoSrc;
+        iframe.allow = "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.allowFullscreen = true;
+        videoFrame.appendChild(iframe);
+      }
+      return;
+    }
+
+    // Removing the iframe stops playback when visitors switch back to photos.
+    if (videoFrame) videoFrame.replaceChildren();
+    startAutoSlide();
+  }
+
   function renderLightbox() {
     if (!lightboxContent || !photos[lightboxIndex]) return;
 
@@ -496,6 +557,9 @@ document.addEventListener("DOMContentLoaded", function () {
       showLightboxPhoto(1);
     });
   }
+
+  if (photoTab) photoTab.addEventListener("click", () => selectGalleryTab("photo"));
+  if (videoTab) videoTab.addEventListener("click", () => selectGalleryTab("video"));
 
   document.addEventListener("keydown", (e) => {
     if (lightbox && lightbox.classList.contains("is-open")) {

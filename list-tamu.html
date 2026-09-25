@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Link Undangan - Ichaq & Imam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fdf8f5;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid #f0dedb;
+        }
+        h2 { color: #764d4c; margin-bottom: 8px; text-align: center; }
+        p.subtitle { font-size: 0.85rem; color: #666; text-align: center; margin-bottom: 20px; }
+        label { font-size: 0.85rem; font-weight: 600; color: #764d4c; display: block; margin-bottom: 6px; }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2d2cd;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            outline: none;
+        }
+        input:focus, textarea:focus { border-color: #764d4c; }
+        textarea { height: 120px; resize: vertical; }
+        .btn-generate {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #e7c1bd 0%, #ddb0ac 100%);
+            color: #745554;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(181, 108, 104, 0.3);
+            transition: transform 0.2s;
+        }
+        .btn-generate:hover { transform: translateY(-2px); }
+        .results-list { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+        .guest-card {
+            background: #fdf8f5;
+            border: 1px solid #f0dedb;
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+        .guest-name { font-weight: 600; color: #764d4c; margin-bottom: 4px; }
+        .guest-url { font-size: 0.75rem; color: #888; word-break: break-all; margin-bottom: 10px; }
+        .action-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+        .btn-action {
+            flex: 1 1 120px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-copy { background: #e8e8e8; color: #444; }
+        .btn-wa { background: #25d366; color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Generator Link Undangan</h2>
+    <p class="subtitle">Buat link khusus tamu secara instan tanpa database/server.</p>
+
+    <label for="baseUrl">URL Domain Website Undangan</label>
+    <input type="url" id="baseUrl" value="" placeholder="https://domain-kamu.com">
+
+    <label for="templateMsg">Pesan WhatsApp Template</label>
+    <textarea id="templateMsg">Kepada Yth. Bapak/Ibu/Saudara/i [NAMA]
+
+Tanpa mengurangi rasa hormat, perkenankan kami mengundang Anda untuk menghadiri acara pernikahan kami.
+
+Berikut tautan undangan digital kami:
+[LINK]
+
+Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+
+Terima Kasih,
+Ichaq & Imam</textarea>
+
+    <label for="guestName">Nama Tamu</label>
+    <input type="text" id="guestName" placeholder="Contoh: Yulinda & Keluarga" autocomplete="off">
+
+    <button class="btn-generate" onclick="generateLinks()">Generate Daftar Link</button>
+
+    <div class="results-list" id="resultsList"></div>
+</div>
+
+<script>
+    const baseUrlInput = document.getElementById('baseUrl');
+    const resultsList = document.getElementById('resultsList');
+
+    // The invitation lives at index.html; this page may be opened from any URL.
+    // Use its containing folder as the suggested base URL.
+    const currentFolder = window.location.href.slice(0, window.location.href.lastIndexOf('/') + 1);
+    baseUrlInput.value = currentFolder;
+
+    document.getElementById('guestName').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') generateLinks();
+    });
+
+    function generateLinks() {
+        const baseUrl = baseUrlInput.value.trim().replace(/\/$/, "");
+        const templateMsg = document.getElementById('templateMsg').value;
+        const guestNameInput = document.getElementById('guestName');
+        const name = guestNameInput.value.trim();
+
+        if (!baseUrl || !/^https?:\/\//i.test(baseUrl)) {
+            alert('Masukkan URL website yang valid, misalnya https://ica-imam.vercel.app');
+            baseUrlInput.focus();
+            return;
+        }
+
+        if (!name) {
+            alert('Masukkan nama tamu terlebih dahulu.');
+            guestNameInput.focus();
+            return;
+        }
+
+        // Encode name for URL parameters.
+        const encodedName = encodeURIComponent(name);
+        const inviteUrl = `${baseUrl}/?to=${encodedName}`;
+
+        // Replace [NAMA] and [LINK] placeholders in message template.
+        const formattedMsg = templateMsg
+            .replace(/\[NAMA\]/g, name)
+            .replace(/\[LINK\]/g, inviteUrl);
+
+        const encodedWaMsg = encodeURIComponent(formattedMsg);
+        const waUrl = `https://wa.me/?text=${encodedWaMsg}`;
+
+        // Append the new guest without replacing the previous results.
+        const card = document.createElement('div');
+        card.className = 'guest-card';
+        const guestName = document.createElement('div');
+        guestName.className = 'guest-name';
+        guestName.textContent = name;
+
+        const guestUrl = document.createElement('div');
+        guestUrl.className = 'guest-url';
+        guestUrl.textContent = inviteUrl;
+
+        const actions = document.createElement('div');
+        actions.className = 'action-btns';
+        const copyButton = document.createElement('button');
+        copyButton.type = 'button';
+        copyButton.className = 'btn-action btn-copy';
+        copyButton.textContent = 'Salin Link';
+        copyButton.addEventListener('click', () => copyToClipboard(inviteUrl, copyButton));
+
+        const copyMessageButton = document.createElement('button');
+        copyMessageButton.type = 'button';
+        copyMessageButton.className = 'btn-action btn-copy';
+        copyMessageButton.textContent = 'Salin Pesan Lengkap';
+        copyMessageButton.addEventListener('click', () => copyToClipboard(formattedMsg, copyMessageButton));
+
+        const waButton = document.createElement('a');
+        waButton.href = waUrl;
+        waButton.target = '_blank';
+        waButton.rel = 'noopener';
+        waButton.className = 'btn-action btn-wa';
+        waButton.textContent = 'Kirim WA';
+        actions.append(copyButton, copyMessageButton, waButton);
+        card.append(guestName, guestUrl, actions);
+        resultsList.appendChild(card);
+
+        guestNameInput.value = '';
+        guestNameInput.focus();
+    }
+
+    async function copyToClipboard(text, btnElement) {
+        try {
+            if (navigator.clipboard && window.isSecureContext) {
+                await navigator.clipboard.writeText(text);
+            } else {
+                const temporaryInput = document.createElement('textarea');
+                temporaryInput.value = text;
+                document.body.appendChild(temporaryInput);
+                temporaryInput.select();
+                document.execCommand('copy');
+                temporaryInput.remove();
+            }
+            const originalText = btnElement.innerText;
+            btnElement.innerText = 'Tersalin! ✓';
+            setTimeout(() => { btnElement.innerText = originalText; }, 1500);
+        } catch (error) {
+            alert('Link belum dapat disalin. Silakan salin secara manual.');
+        }
+    }
+</script>
+
+</body>
+</html>
